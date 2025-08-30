@@ -9,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 import { Bounded } from "@/components/Bounded";
 import { FadeIn } from "@/components/FadeIn";
 import { RevealText } from "@/components/RevealText";
+import { ButtonLink } from "@/components/ButtonLink";
 
 gsap.registerPlugin(useGSAP);
 
@@ -57,7 +58,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           <PrismicRichText field={slice.primary.body} />
         </FadeIn>
 
-        {/* <FadeIn
+        <FadeIn
           className="mt-8 translate-y-5"
           vars={{ delay: 1.7, duration: 1.1 }}
         >
@@ -69,7 +70,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
               variant="Secondary"
             />
           ))}
-        </FadeIn> */}
+        </FadeIn>
       </div>
     </Bounded>
   );
