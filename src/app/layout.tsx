@@ -6,6 +6,7 @@ import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
 import { createClient } from "@/prismicio";
 import { isFilled } from "@prismicio/client";
+import { ViewTransitions } from "next-view-transitions";
 
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
@@ -49,6 +50,7 @@ export default async function RootLayout({
   const settings = await client.getSingle("settings");
 
   return (
+    <ViewTransitions>
       <html
         lang="en"
         className={`${raleway.variable} ${gambarino.variable} antialiased`}
@@ -60,5 +62,6 @@ export default async function RootLayout({
         </body>
         <PrismicPreview repositoryName={repositoryName} />
       </html>
+    </ViewTransitions>
   );
 }

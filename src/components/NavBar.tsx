@@ -12,6 +12,7 @@ import {
   HiUser,
   HiXMark,
 } from "react-icons/hi2";
+import { TransitionLink } from "@/components/TransitionLink";
 
 type NavIconsProps = {
   className?: string;
@@ -54,6 +55,7 @@ export const NavBar = ({ settings }: NavBarProps) => {
           </button>
 
           <div className="absolute left-1/2 -translate-x-1/2 transform">
+            <TransitionLink href="/">
               <Image
                 src="/logo.svg"
                 alt="Côte Royale Paris"
@@ -61,6 +63,7 @@ export const NavBar = ({ settings }: NavBarProps) => {
                 height={30}
                 className="w-32 md:w-44"
               />
+            </TransitionLink>
           </div>
 
           <div className="flex">
@@ -100,6 +103,15 @@ export const NavBar = ({ settings }: NavBarProps) => {
         </div>
 
         <nav className="space-y-4" aria-label="Main Navigation">
+          {settings.data.navigation_link.map((link) => (
+            <TransitionLink
+              field={link}
+              onClick={() => setIsDrawerOpen(false)}
+              key={link.key}
+              className="block border-b border-white/10 py-2 text-xl font-semibold tracking-wide text-white uppercase hover:text-gray-300"
+              tabIndex={isDrawerOpen ? 0 : -1}
+            />
+          ))}
           <div className="pt-4 md:hidden">
             <NavIcons
               className="justify-around"
