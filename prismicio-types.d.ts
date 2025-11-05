@@ -263,6 +263,197 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 /**
+ * Item in *Quiz → Questions*
+ */
+export interface QuizDocumentDataQuestionsItem {
+  /**
+   * Question Text field in *Quiz → Questions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.questions[].question_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  question_text: prismic.KeyTextField;
+
+  /**
+   * Image Terra field in *Quiz → Questions*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.questions[].image_terra
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image_terra: prismic.ImageField<never>;
+
+  /**
+   * Answer Terra field in *Quiz → Questions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.questions[].answer_terra
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  answer_terra: prismic.KeyTextField;
+
+  /**
+   * Image Ignis field in *Quiz → Questions*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.questions[].image_ignis
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image_ignis: prismic.ImageField<never>;
+
+  /**
+   * Answer Ignis field in *Quiz → Questions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.questions[].answer_ignis
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  answer_ignis: prismic.KeyTextField;
+
+  /**
+   * Image Aqua field in *Quiz → Questions*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.questions[].image_aqua
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image_aqua: prismic.ImageField<never>;
+
+  /**
+   * Answer Aqua field in *Quiz → Questions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.questions[].answer_aqua
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  answer_aqua: prismic.KeyTextField;
+}
+
+type QuizDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Quiz documents
+ */
+interface QuizDocumentData {
+  /**
+   * Eyebrow field in *Quiz*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.eyebrow
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  eyebrow: prismic.KeyTextField;
+
+  /**
+   * Title field in *Quiz*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Body field in *Quiz*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.body
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Start Button Text field in *Quiz*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.start_button_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  start_button_text: prismic.KeyTextField;
+
+  /**
+   * Questions field in *Quiz*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.questions[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  questions: prismic.GroupField<Simplify<QuizDocumentDataQuestionsItem>>;
+
+  /**
+   * Slice Zone field in *Quiz*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<QuizDocumentDataSlicesSlice> /**
+   * Meta Title field in *Quiz*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: quiz.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Quiz*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: quiz.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Quiz*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Quiz document from Prismic
+ *
+ * - **API ID**: `quiz`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type QuizDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<QuizDocumentData>, "quiz", Lang>;
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -332,6 +523,7 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | FragranceDocument
   | HomepageDocument
+  | QuizDocument
   | SettingsDocument;
 
 /**
@@ -820,6 +1012,10 @@ declare module "@prismicio/client" {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      QuizDocument,
+      QuizDocumentData,
+      QuizDocumentDataQuestionsItem,
+      QuizDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
