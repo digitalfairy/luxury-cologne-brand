@@ -34,7 +34,7 @@ An immersive, high-end landing page for **Côte Royale**, a fictional luxury col
 
 To review the project code and run it locally:
 
-1. **Clone:** `git clone [https://github.com/digitalfairy/Cote-Royale.git](https://github.com/digitalfairy/Cote-Royale.git)`
+1. **Clone:** `git clone [https://github.com/digitalfairy/luxury-cologne-brand.git](https://github.com/digitalfairy/luxury-cologne-brand.git)`
 2. **Install:** `npm install`
 3. **Run Dev Server:** `npm run dev`
 4. **Visit:** `http://localhost:3000`
